@@ -314,7 +314,7 @@ export default [
               length: 11,
               precision: 0,
             },
-          },
+          }
         },
         date: {
           mode: 'date-picker',
