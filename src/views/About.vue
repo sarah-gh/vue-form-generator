@@ -10,6 +10,7 @@
             class="complete-information__stepper-content"
             :step="index + 1"
           >
+          <h2>{{step.title}}</h2>
               <myForm
                 ref="form"
                 :schema="step.schema"
@@ -18,9 +19,10 @@
                 :staticRowsData="step.staticRowsData"
                 class="pb-3"
               />
-              <!-- <button @click="aaa"></button> -->
+              <hr>
           </div>
       </div>
+      <button @click="submit()">click me!!!!!!!!!!!</button>
     </div>
   </div>
 </template>
@@ -42,47 +44,12 @@ export default {
         step: 1,
         captcha: {},
         steps: [],
-        lastStep: {
-          title: 'سایر توضیحات',
-          schema: {
-            otherComment: {
-              value: {
-                mode: 'textarea',
-                label: 'سایر توضیحات',
-                md: 12,
-                value: null,
-                options: {
-                  rules: [],
-                },
-              },
-            },
-          },
-        },
       };
     },
     methods: {
-      aaa() {
-
-      },
-      changeStep(value) {
-        let isValid = true;
-        if (this.step < value) isValid = this.$refs.form[this.step - 1].validate();
-        if (isValid) this.step = value;
-      },
-      progressValue(step) {
-        return Math.floor((step * 100) / (this.steps.length + 1));
-      },
-      setCaptchaToken(data) {
-        this.captcha.token = data.token;
-        console.log(this.captcha);
-      },
       async submit() {
-        const lastFormValidate = this.$refs.lastForm.validate();
-        const captchaValidate = this.$refs.captcha.validate();
-        if (!lastFormValidate || !captchaValidate) {
-          return;
-        }
         let formData = {};
+        console.log('this.$refs.form ',this.$refs.form);
         this.$refs.form.forEach((i) => {
           let data = i.getData();
           formData = {
@@ -102,31 +69,23 @@ export default {
                 break jFor;
               }
             }
-            console.log(f, formData[i]);
             if (f) {
               formData[i] = null;
             }
           }
         }
-        formData.captcha = this.captcha;
-        const { uniqueKey, id } = this.user;
-        formData.id = id;
-        formData.uniqueKey = uniqueKey;
-        try {
-          this.loading = true;
-          await this.requestConfirmUserInfo({ body: formData, method: 'put' });
-        } catch (error) {
-          this.error = error;
-        } finally {
-          this.loading = false;
-        }
+        console.log('>>>>>>>', formData);
       },
     },
     mounted() {
       this.steps = steps
-      console.log(this.user, this.sejamUserInformation, this.publicInfo);
-      // this.$refs.form.push(this.$refs.lastForm);
-      // console.log(this.$refs.form);
     },
 }
 </script>
+
+<style lang="scss">
+.complete-information__content{
+  width: 600px;
+  margin: 0 auto;
+}
+</style>

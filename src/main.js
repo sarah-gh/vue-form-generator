@@ -2,23 +2,25 @@ import Vue from 'vue'
 import App from './App.vue'
 import router from './router'
 import store from './store'
-// import './assets/stylesheets/advanced-tabulator.css'
-// import './assets/tabulator-css.css'
-// import './assets/sas/style.scss'
-import VueTabulator from 'vue-tabulator';
+import { library } from '@fortawesome/fontawesome-svg-core'
+import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
+import VuePersianDatetimePicker from 'vue-persian-datetime-picker';
+import { fas } from '@fortawesome/free-solid-svg-icons'
+library.add(fas);
+import { fab } from '@fortawesome/free-brands-svg-icons';
+library.add(fab);
+import { far } from '@fortawesome/free-regular-svg-icons';
+library.add(far);
+import { dom } from "@fortawesome/fontawesome-svg-core";
+dom.watch();
+import vSelect from 'vue-select'
+import 'vue-select/dist/vue-select.css';
 
-Vue.use(VueTabulator);
+Vue.component('v-select', vSelect)
+Vue.component('font-awesome-icon', FontAwesomeIcon)
+Vue.component('date-picker', VuePersianDatetimePicker);
 Vue.config.productionTip = false
 
-import ElementUI from 'element-ui'
-import 'element-ui/lib/theme-chalk/index.css'
-import 'element-theme-chalk';
-import 'element-theme-default';
-Vue.use(ElementUI)
-import DynamicForm from 'vue-dynamic-form-component'
-Vue.use(DynamicForm)
-import VuePersianDatetimePicker from 'vue-persian-datetime-picker';
-Vue.component('date-picker', VuePersianDatetimePicker);
 new Vue({
   router,
   store,

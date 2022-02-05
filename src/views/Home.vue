@@ -1,18 +1,33 @@
 <template>
   <div class="home">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
   </div>
 </template>
 
 <script>
-// @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue'
 
 export default {
   name: 'Home',
-  components: {
-    HelloWorld
-  }
+  data() {
+      return {
+        autoCompleteStyle : {
+          vueSimpleSuggest: "position-relative",
+          inputWrapper: "",
+          defaultInput : "form-control",
+          suggestions: "position-absolute list-group z-1000",
+          suggestItem: "list-group-item"
+        },
+        chosen: ''
+      }
+    },
+    methods: {
+      simpleSuggestionList() {
+        return [
+          'Vue.js',
+          'React.js',
+          'Angular.js'
+        ]
+      }
+    }
 }
 </script>
 
