@@ -1,0 +1,43 @@
+
+.chart {
+  flex-basis: 50%;
+  background-color: white;
+  border-radius: 5px;
+
+  .chart-header {
+    display: flex;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 20px 30px;
+    justify-content: space-between;
+    flex-direction: row;
+    border-bottom: 1px solid #e5e0e0;
+    border-radius: 0;
+
+    h3 {
+      margin: 0;
+    }
+
+
+
+    .chart-select {
+      select {
+        padding: 0 15px;
+        border: 1px solid #bab7b7;
+        border-radius: 3px;
+        color: #979494;
+        font-family: Yekan;
+
+        ::selection {
+          border: 1px solid red;
+        }
+      }
+    }
+  }
+
+  .chart-content {
+    width: 100%;
+    box-sizing: border-box;
+    height: 400px;
+  }
+}

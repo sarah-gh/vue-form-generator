@@ -1,0 +1,18 @@
+.jstree, .jstree-1, .jstree-rtl, .jstree-default {
+    text-align: right;
+}
+
+.jstree-default .jstree-anchor {
+    line-height: 24px;
+    height: auto !important;
+    white-space: pre-wrap;
+}
+
+.box_ledger {
+    border: 1px solid #b1b1b1;
+    padding:10px 5px;
+    width: 50%;
+    min-height: 500px;
+    border-radius: 5px;
+    margin: 0 10px
+}

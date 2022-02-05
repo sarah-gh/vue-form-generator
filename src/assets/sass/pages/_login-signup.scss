@@ -1,0 +1,24 @@
+.auth-wrapper{
+    margin-top: 5%;
+    flex: 1 1 0;
+
+    & .formbox{
+        max-width: 400px;
+        margin: 0 auto;
+        
+        & form{
+
+            & .has-error{
+
+                & label{
+                    display: block !important;
+                }
+
+                & input{
+                    box-shadow: none;
+                    border: 1px solid #dc3545;
+                }
+            }
+        }
+    }
+}

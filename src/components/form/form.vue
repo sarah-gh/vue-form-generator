@@ -1,0 +1,215 @@
+<template>
+    <form ref="form">
+        <div v-if="message">
+        <!-- <v-alert @input="message = undefined" dismissible class="mt-5" type="error" dense outlined text>
+            {{ message }}
+        </v-alert> -->
+        </div> 
+        <template v-if="type === 'simple'">
+            <FormFields :items="fields" />
+            <button @click.prevent="_addCard()" color="primary" class="px-10 mx-md-6 mt-5">تایید</button>
+        </template>
+        <template v-else-if="type === 'multiple'">
+            <template>
+                <!-- v-model="showDialog" -->
+                <div max-width="1000"> 
+                <div v-if="showDialog" class="white pa-5">
+                    <div class="d-flex justify-end">
+                    <button @click.prevent="showDialog = false">
+                        <i>mdi-close</i>
+                    </button>
+                    </div>
+                    <FormFields :items="fields" />
+                    <button @click.prevent="_addCard()" color="primary" class="px-10 mx-md-6 mt-5">تایید</button>
+                </div>
+                </div>
+            </template>
+            <template>
+                <div v-if="rows.length" class="mt-4">
+                <div v-for="(row, index) in rows" :key="row.id">
+                    <div class="mx-3 mb-3 pa-3 pb-5">
+                    <div class="d-flex justify-end pr-4">
+                        <button @click.prevent="_removeCard(index)" icon color="error" class="mr-4">
+                        <i>mdi-close</i>
+                        </button>
+                    </div>
+                    <div class="row no-gutters">
+                        <div class="col-sm-4 col-12"
+                        v-for="(i, key) in fields"
+                        :key="key"
+                        :cols="i.cols || 12"
+                        :sm="i.sm"
+                        :md="i.md"
+                        :lg="i.lg"
+                        :xl="i.xl"
+                        >
+                        <b>{{ i.label }}: </b>
+                        <span>{{ row.data[key] || '---' }}</span>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+
+                <button @click.prevent="showDialog = true" dark class="mt-4 mr-4 success"><i>mdi-plus</i></button>
+                </div>
+                <div v-else class="d-flex flex-column align-center my-7">
+                <h3 class="mb-3">لیست خالی است</h3>
+                <button @click.prevent="showDialog = true" color="success"><i>mdi-plus</i>افزودن ایتم جدید</button>
+                </div>
+            </template>
+        </template>
+    </form>
+</template>
+
+<script>
+  import FormFields from './form-fields.vue';
+  export default {
+    components: { FormFields },
+    props: {
+      staticRowsData: {
+        type: Array,
+        default: () => [],
+      },
+      schema: {
+        type: Object,
+        required: true,
+      },
+      type: {
+        type: String,
+        default: 'simple',
+        validator(value) {
+          return ['table', 'multiple', 'simple'].includes(value);
+        },
+      },
+      minItemLength: {
+        type: Number,
+        default: 0,
+      },
+    },
+    data() {
+      return {
+        key: null,
+        staticRows: false,
+        fields: [],
+        rows: [],
+        showDialog: false,
+        message: '',
+      };
+    },
+    mounted() {
+        console.log("form : ", this.$refs.form);
+    },
+    watch: {
+      schema: {
+        immediate: true,
+        deep: true,
+        handler(value) {
+          const key = Object.keys(value)[0];
+          this.key = key;
+          this.fields = value[key];
+        },
+      },
+      staticRowsData: {
+        immediate: true,
+        deep: true,
+        handler(value) {
+          if (value) {
+            value.forEach((i, index) => {
+              let item;
+              for (const j in this.fields) {
+                item = { ...item, [j]: { ...this.fields[j] } };
+              }
+              for (const j in i) {
+                item[j].value = i[j];
+              }
+              this.rows.push({
+                id: index + 1,
+                data: item,
+              });
+            });
+            if (this.type === 'table' && this.rows.length === 0) {
+              this.rows.push({
+                id: 1,
+                data: {},
+              });
+            }
+            this.staticRows = true;
+          }
+        },
+      },
+    },
+    methods: {
+      _addCard() {
+        // if (!this.$refs.form.validate()) return;
+        const lastId = this.rows.length ? this.rows[this.rows.length - 1].id : 1;
+        this.rows.push({ id: lastId + 1, data: this._getDataFromSchemaObject() });
+        // this.$refs.form.reset();
+        this.showDialog = false;
+        this.message = undefined;
+      },
+      _removeCard(index) {
+        this.rows.splice(index, 1);
+      },
+      _getDataFromRows() {
+        if (this.type === 'table') {
+          console.log(this.rows);
+          return this.rows.map((i) => {
+            const model = {};
+            for (const j in i.data) {
+              model[j] = i.data[j].value || i.data[j].default;
+              // if (i.data[j]?.options?.covertToNumber) model[j] = +model[j];
+              // else model[j] = model[j] + '';
+            }
+            return model;
+          });
+        } else {
+          return this.rows.map((i) => {
+            console.log(i);
+            let data = {};
+            for (const j in i.data) {
+              console.log(this.schema[this.key][j]);
+              // if (this.schema[this.key][j]?.options?.covertToNumber) data[j] = +i.data[j];
+              // else data[j] = i.data[j] + '';
+            }
+            return data;
+          });
+        }
+      },
+      _getDataFromSchemaObject() {
+        const data = Object.entries(this.schema[this.key]);
+        let formData = {};
+        if (data.length === 1 && data[0][0] === 'value') {
+          formData = this.schema[this.key].value.value || this.schema[this.key].value.default;
+          // if (this.schema[this.key].value?.options?.covertToNumber) formData = +formData;
+          // else formData = formData? formData + '' : null;
+        } else {
+          data.forEach(([name, value]) => {
+            formData[name] = value.value || value.default;
+            // if (value?.options?.covertToNumber) formData[name] = +formData[name];
+            // else formData[name] = formData[name]? formData[name] + '' : null;
+          });
+        }
+        return formData;
+      },
+      getData() {
+        // if (!this.validate) return;
+        let formData;
+        if (['table', 'multiple'].includes(this.type)) formData = this._getDataFromRows();
+        else formData = this._getDataFromSchemaObject();
+        return {
+          [this.key]: formData,
+        };
+      },
+      validate() {
+        if (this.$refs.form && !this.$refs.form.validate()) return false;
+        if (this.type === 'multiple' && this.minItemLength && this.rows.length < this.minItemLength) {
+          const message = `حداقل ${this.minItemLength} ایتم ضروری است`;
+          this.message = message;
+          this.$toast.showMessage({ message, color: 'error' });
+          return false;
+        }
+        return true;
+      },
+    },
+  };
+</script>

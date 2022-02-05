@@ -1,0 +1,149 @@
+@mixin button {
+  font-family: yj, serif;
+  font-size: 16px;
+  border: none;
+  padding: 4px 40px;
+  border-radius: 5px;
+  cursor: pointer;
+  text-align: center;
+  color: #ffffff;
+  height: 40px;
+}
+
+.blue-btn {
+  background-color: #2a5ac2;
+  @include button;
+}
+
+
+.hollow-btn {
+  border-radius: 15px;
+  border: 1px solid #6487b8;
+  color: #6487b8;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  margin: 0 6px;
+  font-family: yj, serif;
+  background-color: initial;
+  width: 100px;
+  height: 30px;
+  transition: 0.3s ease all;
+  cursor: pointer;
+  img {
+    margin-left: 10px;
+  }
+}
+.hollow-btn:hover{
+  color: #ffffff;
+  background-color: #1c3e6e;
+}
+.select-padding {
+  font-family: yj, serif;
+  padding: 5px 50px;
+  margin-right: 20px;
+  border: 1px solid #eeeded;
+  border-radius: 3px;
+}
+
+.select-filter {
+  background-color: white;
+  border: thin solid #ccc;
+  border-radius: 4px;
+  display: inline-block;
+  font: inherit;
+  width: 150px;
+  line-height: 1.5em;
+  padding: 0.5em 3.5em 0.5em 1em;
+  margin: 0 10px;
+  height: 40px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-image: linear-gradient(45deg, transparent 50%, gray 50%),
+  linear-gradient(135deg, gray 50%, transparent 50%),
+  linear-gradient(to right, #ccc, #ccc);
+  background-position: calc(100% - 20px) calc(1em + 2px),
+  calc(100% - 15px) calc(1em + 2px),
+  calc(100% - 2.5em) 0.5em;
+  background-size: 5px 5px,
+  5px 5px,
+  1px 1.5em;
+  background-repeat: no-repeat;
+
+  &:focus {
+    background-image: linear-gradient(45deg, #ccc 50%, transparent 50%),
+    linear-gradient(135deg, transparent 50%, #ccc 50%),
+    linear-gradient(to right, #ccc, #ccc);
+    background-position: calc(100% - 15px) 1em,
+    calc(100% - 20px) 1em,
+    calc(100% - 2.5em) 0.5em;
+    background-size: 5px 5px,
+    5px 5px,
+    1px 1.5em;
+    background-repeat: no-repeat;
+    border-color: #ccc;
+    outline: 0;
+  }
+
+  &:-moz-focusring {
+    color: transparent;
+    text-shadow: 0 0 0 #000;
+  }
+}
+
+.input-padding {
+  width: 190px;
+  font-family: Yekan, serif;
+  padding: 5px 5px;
+  margin-right: 20px;
+  border: 1px solid #eeeded;
+  border-radius: 3px;
+}
+
+.addButton {
+  @include button;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  background-color: #0e2b68;
+
+  img {
+    margin-left: 10px;
+  }
+}
+
+.up-button {
+  @include button;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  background-color: #c7000f;
+  margin-right: 20px;
+
+  img {
+    margin-left: 10px;
+  }
+}
+
+.inputCheckBox {
+  display: inline-block;
+  min-width: 28px;
+  min-height: 28px;
+  border-radius: 25px;
+  border: 1px solid #747474;
+}
+
+.box_btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px 0 25px 0;
+}
+
+.test-font {
+  font: 14px "iranyekan" !important;
+}
+

@@ -1,0 +1,137 @@
+@font-face {
+  font-family: 'YJ';
+  src: url('../fonts/Yekan.eot?#') format('eot'), /* IE6–8 */
+  url('../fonts/Yekan.woff') format('woff'), /* FF3.6+, IE9, Chrome6+, Saf5.1+*/
+  url('../fonts/Yekan.ttf') format('truetype');  /* Saf3—5, Chrome4+, FF3.5, Opera 10+ */
+}
+
+@font-face {
+  font-family: 'YJ';
+  src: url('../fonts/yekannumbers-regular.eot?#') format('eot'), /* IE6–8 */
+  url('../fonts/yekannumbers-regular.woff') format('woff'), /* FF3.6+, IE9, Chrome6+, Saf5.1+*/
+  url('../fonts/yekannumbers-regular.ttf') format('truetype');  /* Saf3—5, Chrome4+, FF3.5, Opera 10+ */
+}
+
+@font-face {
+  font-family: "iranyekan";
+  src: url("../fonts/fonts/woff/iranyekanwebregular(fanum).woff"),
+  url("../fonts/fonts/woff2/iranyekanwebregular(fanum).woff2"),
+  url("../fonts/fonts/ttf/iranyekanwebregular(fanum).ttf"),
+  url("../fonts/fonts/eot/iranyekanwebregular(fanum).eot");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "iranyekan";
+  src: url("../fonts/fonts/woff/iranyekanwebbold(fanum).woff") format("woff"),
+  url("../fonts/fonts/woff2/iranyekanwebbold(fanum).woff2") format("woff2"),
+  url("../fonts/fonts/ttf/iranyekanwebbold(fanum).ttf") format("truetype"),
+  url("../fonts/fonts/eot/iranyekanwebbold(fanum).eot") format("eot");
+  font-weight: bold;
+  font-style: normal;
+}
+
+html {
+  direction: rtl;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  //font: $font-default;
+  font-weight: bold;
+  // font-family: 'YJ' !important;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.79;
+  letter-spacing: normal;
+  text-align: center;
+  color: #5c5c5c;
+  user-select: none;
+
+  body {
+    font: $font-default;
+    // min-height: 100vh;
+  }
+
+  * {
+    outline: none;
+  }
+
+  a {
+    cursor: pointer;
+    text-decoration: none;
+
+    :active {
+      color: initial !important;
+    }
+  }
+
+  p {
+    font-size: 16px;
+  }
+
+  body {
+    margin: 0;
+    background: #F5F5F5;
+    overflow-y: overlay;
+
+    &::-webkit-scrollbar {
+      width: 8px;
+      //background-color: #273a63;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      border-radius: 8px;
+      //-webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, .3);
+      background-color: rgba(26, 26, 26, 0.4);
+    }
+
+    .container {
+      width: 100%;
+      background-color: #f5f6f8;
+      position: relative;
+
+      .contain {
+        padding: 0 110px 30px 110px;
+        @include breakpoint(ultra) {
+          padding: 0 20px 30px 20px !important;
+        }
+
+        .content {
+          margin-top: 60px;
+          width: 100%;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          padding-top: 20px;
+        }
+      }
+
+      .vue-notification-group {
+        width: 200px !important;
+        top: 65px !important;
+        left: 0px !important;
+
+        .vue-notification-wrapper {
+          display: block;
+          overflow: hidden;
+          text-align: end;
+          width: 100%;
+          padding: 0;
+          .notification-content{
+            text-align: start;
+            padding: 0 10px 0 0;
+          }
+        }
+      }
+    }
+  }
+}
+
+.madison {
+  color: #0e2b68;
+}
+
+.time {
+  font-family: 'iranyekan' !important;
+}

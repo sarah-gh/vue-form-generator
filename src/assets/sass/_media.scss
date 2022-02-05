@@ -1,0 +1,36 @@
+@mixin breakpoint($point) {
+
+  @if $point==watch {
+    @media (max-width: 160px) {
+      @content;
+    }
+  } @else if $point==xxsmall {
+    @media (max-width: 330px) {
+      @content;
+    }
+  } @else if $point==xsmall {
+    @media (max-width: 576px) {
+      @content;
+    }
+  } @else if $point==small {
+    @media (max-width: 790px) {
+      @content;
+    }
+  } @else if $point==medium {
+    @media (max-width: 992px) {
+      @content;
+    }
+  } @else if $point==large {
+    @media (max-width: 1200px) {
+      @content;
+    }
+  } @else if $point==ultra {
+    @media (max-width: 1500px) {
+      @content;
+    }
+  } @else {
+    @media ($point) {
+      @content;
+    }
+  }
+}

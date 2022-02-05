@@ -1,0 +1,132 @@
+.loan {
+  width: calc(100% - 150px);
+  background-color: white;
+  padding: 30px;
+  border-radius: 5px;
+
+  .header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+
+    h3 {
+      text-align: right;
+      flex-basis: 20%;
+    }
+
+    @include breakpoint(large) {
+      div, h3 {
+        margin-top: 20px;
+      }
+    }
+
+    .tab3-header-box-button {
+      display: flex;
+      flex-wrap: wrap;
+
+
+      @include breakpoint(small) {
+        justify-content: center;
+        button {
+          &:first-child {
+            margin: 0 0 20px 0;
+          }
+
+          &:last-child {
+            margin: 0;
+          }
+        }
+      }
+    }
+  }
+
+  .tab3-content {
+    .setting {
+      h3 {
+        padding-bottom: 12px;
+        margin-left: 20px;
+      }
+
+      background-color: #f8f8f8;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 25px 15px;
+      border-radius: 3px;
+      margin: 15px 0;
+      flex-wrap: wrap;
+      width: 100%;
+
+      @include breakpoint(medium) {
+        justify-content: center;
+        .date-box {
+          &:nth-child(2) {
+            margin: 20px 0;
+          }
+        }
+      }
+
+      .date-box {
+        display: flex;
+        justify-content: space-evenly;
+        flex-grow: 1;
+        flex-wrap: wrap;
+
+        .date-picker-self {
+          display: flex;
+          position: relative;
+
+          @include breakpoint(medium) {
+            margin: 10px 0;
+          }
+
+          .message {
+            position: absolute;
+            left: 3px;
+            top: 33px;
+            color: red;
+            font-size: 12px;
+          }
+
+          .vpd-icon-btn {
+            border-top-right-radius: 5px;
+            border-bottom-right-radius: 5px;
+          }
+
+          .form-control {
+            border-top-left-radius: 5px;
+            border-bottom-left-radius: 5px;
+            font-family: yj, serif;
+
+          }
+
+          > label {
+            vertical-align: super;
+            margin-left: 15px;
+          }
+        }
+      }
+
+      p {
+        margin: 0 35px 0 0;
+        vertical-align: super;
+        font-weight: bold;
+      }
+
+      > div {
+        .multiselect > .multiselect__tags {
+          padding: 0 40px 0 8px;
+          display: flex;
+          justify-content: space-between;
+          flex-direction: row-reverse;
+
+          .multiselect__tags-wrap {
+            display: flex;
+            align-items: center;
+          }
+        }
+      }
+    }
+  }
+}

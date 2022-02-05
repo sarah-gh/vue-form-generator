@@ -1,0 +1,39 @@
+.tableBox {
+  flex-basis: 50%;
+  padding: 0 20px;
+  overflow-y: auto;
+  @include breakpoint(ultra) {
+    margin-top: 20px;
+    flex-basis: 100%!important;
+
+  }
+
+  table {
+    border-radius: 8px;
+    background-color: white;
+    border: none;
+    width: 100%;
+    border-collapse: collapse;
+  }
+
+  tbody {
+    tr:nth-child(Even) {
+      background-color: #f9f9f9;
+    }
+  }
+
+  th, td {
+    color: #29488b;
+    line-height: 45px;
+  }
+
+  .header-table {
+    background-color: #f6f8ff;
+
+    ul {
+      list-style-type: none;
+      display: flex;
+    }
+  }
+
+}

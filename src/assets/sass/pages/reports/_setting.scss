@@ -1,0 +1,54 @@
+.settingOrg {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  width: 100%;
+
+  > p {
+    color: $darkBlue-self;
+  }
+
+  .setting-type {
+    display: flex;
+    flex-direction: column;
+    margin-top: 40px;
+    background-color: white;
+
+    > p {
+      background-color: #f6f8ff;
+      padding: 20px;
+      color: $darkBlue-self;
+
+    }
+
+    .setting-type-box {
+      display: flex;
+      justify-content: space-between;
+
+      .section {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        padding: 20px 20px;
+        align-items: center;
+        flex-basis: 33%;
+
+        &:first-child {
+          align-items: flex-start;
+        }
+      }
+    }
+
+    &:last-child {
+      .setting-type-box {
+        flex-direction: column;
+
+        .section {
+          flex-direction: row;
+          align-items: center;
+          justify-content: space-between;
+        }
+      }
+    }
+  }
+}

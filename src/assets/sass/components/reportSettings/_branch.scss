@@ -1,0 +1,42 @@
+.branch {
+  width: calc(100% - 150px);
+  background-color: white;
+  padding: 30px;
+  border-radius: 5px;
+
+  .branch-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+  }
+
+  .tab3-content {
+    .setting .input {
+      display: flex;
+    }
+    .setting .input h3 {
+      margin-left: 20px;
+    }
+    .setting {
+      background-color: #f8f8f8;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px 15px;
+      border-radius: 3px;
+      margin: 15px 0;
+
+      .branch-multi-select {
+        width: 200px;
+
+        .multiselect__tags {
+          padding: 5px 10px; 
+          .multiselect__placeholder{
+            margin: 0 0 0 10px;
+          }
+        }
+      }
+    }
+  }
+}

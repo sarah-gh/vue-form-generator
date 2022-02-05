@@ -1,0 +1,39 @@
+// Themes
+$themes: (
+        light: (
+                'white':#ffffff,
+                'black': #000000,
+                'primary': #2a3f54,
+                'secondary': #1ABB9C,
+                'blue01': #007bff,
+        ),
+        dark: (
+                'white': #000000,
+                'black':#ffffff,
+                'primary': #1ABB9C,
+                'secondary': #2a3f54,
+                'blue01': #007bff,
+        ),
+);
+
+
+$width-sidebar: 260px;
+$font-default: 14px YJ;
+
+$darkBlue-self: #0e2b68;
+
+// PartFontIcon Variables
+$icomoon-font-path: "../fonts/fonticon" !default;
+
+$icon-microsoftword: "\e909";
+$icon-microsoftexcel: "\e90a";
+$icon-adobeacrobatreader: "\e90b";
+$icon-star: "\e905";
+$icon-angle-right: "\e902";
+$icon-angle-left: "\e907";
+$icon-angle-down: "\e908";
+$icon-home: "\e900";
+$icon-th-menu: "\e901";
+$icon-plus: "\e903";
+$icon-minus: "\e904";
+$icon-folder-download: "\e906";

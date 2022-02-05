@@ -1,0 +1,89 @@
+.interval {
+  width: calc(100% - 150px);
+  background-color: white;
+  padding: 30px;
+  border-radius: 5px;
+
+  .interval-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+  }
+
+  .tab3-content {
+    .setting {
+      background-color: #f8f8f8;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px 15px;
+      border-radius: 3px;
+      margin: 15px 0;
+
+
+
+      .startDate {
+        display: flex;
+        position: relative;
+        &:nth-child(1) {
+          flex-grow: 0.5;
+        }
+        .message {
+          position: absolute;
+          right: 45px;
+          top: 33px;
+          color: red;
+          font-size: 12px;
+        }
+
+        label {
+          margin-left: 15px;
+        }
+
+        span {
+          input {
+
+          }
+
+        }
+
+
+        //}
+
+        > input {
+          display: flex;
+          border: 1px solid #dadada;
+          line-height: 30px;
+          padding: 0 10px 0 0;
+          margin-right: 15px;
+          flex-grow: 1;
+          font-family: yj, serif;
+
+        }
+      }
+
+      .vue-swatches {
+        .vue-swatches__trigger__wrapper {
+          .vue-swatches__trigger {
+            width: 25px !important;
+            height: 25px !important;
+          }
+        }
+
+        .vue-swatches__container {
+          .vue-swatches__wrapper {
+            width: 170px !important;
+
+            .vue-swatches__row {
+              .vue-swatches__swatch {
+                width: 30px !important;
+                height: 30px !important;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
