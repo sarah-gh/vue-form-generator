@@ -1,13 +1,16 @@
 <template>
-  <ValidationObserver tag="div" ref="form" style="width: 100%;">
+<div>
+  <ValidationObserver v-if="type === 'simple'" tag="div" ref="form" style="width: 100%;">
       <form>
-          <div v-if="message">
-          </div> 
-          <template v-if="type === 'simple'">
+          <template >
               <FormFields :items="fields" />
               <!-- <button @click.prevent="_addCard()" color="primary" class="px-10 mx-md-6 mt-5">تایید</button> -->
           </template>
-          <template v-else-if="type === 'multiple'">
+      </form>
+  </ValidationObserver>
+   <ValidationObserver v-else-if="type === 'multiple'" tag="div" ref="form" style="width: 100%;">
+      <form>
+          <template>
               <template>
                   <div max-width="1000"> 
                   <div v-if="showDialog" class="white pa-5">
@@ -48,6 +51,7 @@
           </template>
       </form>
   </ValidationObserver>
+  </div>
 </template>
 
 <script>
@@ -132,11 +136,19 @@
         return value ? true : 'This field is required';
       },
       _addCard() {
-        const lastId = this.rows.length ? this.rows[this.rows.length - 1].id : 1;
-        this.rows.push({ id: lastId + 1, data: this._getDataFromSchemaObject() });
-        // this.$refs.form.reset();
-        this.showDialog = false;
-        this.message = undefined;
+        console.log('this.$refs.form.validate() : ');
+        console.log(this.$refs.form.validate());
+        this.$refs.form.validate().then(async success => {
+          if (!success) {
+            console.log(false);
+            return false;
+          }
+          const lastId = this.rows.length ? this.rows[this.rows.length - 1].id : 1;
+          this.rows.push({ id: lastId + 1, data: this._getDataFromSchemaObject() });
+          // this.$refs.form.reset();
+          this.showDialog = false;
+        })
+        
       },
       _removeCard(index) {
         this.rows.splice(index, 1);
@@ -189,6 +201,9 @@
         };
       },
       validate() {
+        console.log('this.$refs.form.validate() : ');
+        console.log(this.$refs.form.validate());
+        console.log('');
         // if (this.$refs.form && !this.$refs.form.validate()) return false;
         if (this.type === 'multiple' && this.minItemLength && this.rows.length < this.minItemLength) {
           const message = `حداقل ${this.minItemLength} ایتم ضروری است`;

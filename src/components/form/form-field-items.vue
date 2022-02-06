@@ -1,10 +1,8 @@
 <template>
-    <div>
-        <ValidationProvider :name="item.name" :rules="item.rules" v-slot="{ errors }" tag="div" class="form-group">
-            <component v-bind:is="currentTabComponent" :item="item"></component>
-            <p v-if="errors[0]" class="invalid-feedback">{{ errors[0] }}</p>
-        </ValidationProvider>
-    </div>
+    <ValidationProvider :rules="item.options.rules" v-slot="{ errors }" tag="div" class="form-group">
+        <component v-bind:is="currentTabComponent" :item="item"></component>
+        <p v-if="errors[0]" class="invalid-feedback error">{{ errors[0] }}</p>
+    </ValidationProvider>
 </template>
 
 <script>

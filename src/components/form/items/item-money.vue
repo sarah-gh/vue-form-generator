@@ -1,6 +1,6 @@
 <template>
     <div>
-        <label>{{item.label}}</label> 
+        <label>{{item.label}}</label> <span v-if="item.options.rules">*</span>
         <!-- <input v-model="item.value" placeholder="money"> -->
         <input v-model="fValue" placeholder="money" @keypress="isNumber($event)">
     </div> 

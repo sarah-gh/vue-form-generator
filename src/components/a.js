@@ -12,7 +12,7 @@ export default [
           md: 4,
           value: null,
           options: {
-            rules: [],
+            rules: '',
             items: [
               'بیکار', 'بازنشسته', 'کارگر', 'خانه دار', 'کارمند', 'محصل', 'دانشجوی دانشگاه', 'نظامی', 'پزشک', 'فعال اقتصادی', 'مهندس', 'وکیل', 'پرستار',
               'خدماتی', 'معلم', 'تکنسین فنی', 'راننده', 'مکانیک', 'فروشنده', 'تاجر', 'بهیار', 'استاد دانشگاه', 'کاسب', 'فعال حوزه صنعت', 'تولیدی', 'بازرگانی', 'کشاورزی', 'علمی', 'شغل آزاد', 'سایر'
@@ -25,7 +25,7 @@ export default [
           md: 4,
           value: null,
           options: {
-            rules: ['required'],
+            rules: 'required|min:3',
           },
         },
         jobAddress: {
@@ -34,7 +34,7 @@ export default [
           md: 4,
           value: null,
           options: {
-            rules: [],
+            rules: 'required|min:3',
           },
         },
         jobDurationActivity: {
@@ -44,7 +44,7 @@ export default [
           value: null,
           cssClasses: ['small-append-icon'],
           options: {
-            // rules: [ jobActivity],
+            rules: 'required|min:3',
             hint: 'براساس ماه',
             type: 'number',
             min: 0,
@@ -66,7 +66,7 @@ export default [
           value: null,
           cssClasses: ['small-append-icon'],
           options: {
-            rules: [],
+            rules: 'required|min:3',
             type: 'number',
             options: {
               suffix: 'ریال',
@@ -82,7 +82,7 @@ export default [
           value: null,
           cssClasses: ['small-append-icon'],
           options: {
-            rules: [],
+            rules: 'required|min:3',
             type: 'number',
             options: {
               suffix: 'ریال',
@@ -98,7 +98,7 @@ export default [
           value: null,
           cssClasses: ['small-append-icon'],
           options: {
-            rules: [],
+            rules: 'required|min:3',
             type: 'number',
             options: {
               suffix: 'ریال',
@@ -119,7 +119,7 @@ export default [
           md: 12,
           value: null,
           options: {
-            rules: [],
+            rules: '',
           },
           items: [
             {
@@ -147,7 +147,7 @@ export default [
           value: null,
           cssClasses: ['mt-5'],
           options: {
-            rules: [],
+            rules: '',
             rows: 3,
           },
         },
@@ -166,7 +166,7 @@ export default [
           md: 4,
           value: null,
           options: {
-            rules: [],
+            rules: '',
           },
         },
         amount: {
@@ -175,7 +175,7 @@ export default [
           md: 4,
           value: null,
           options: {
-            rules: [],
+            rules: '',
             options: {
               suffix: 'ریال',
               length: 11,
@@ -189,7 +189,7 @@ export default [
           md: 4,
           value: null,
           options: {
-            rules: [],
+            rules: '',
           },
         },
         amountOfProfitOrLoss: {
@@ -198,7 +198,7 @@ export default [
           md: 4,
           value: null,
           options: {
-            rules: [],
+            rules: '',
             options: {
               suffix: 'ریال',
               length: 11,
@@ -212,7 +212,7 @@ export default [
           md: 8,
           value: null,
           options: {
-            rules: [],
+            rules: '',
             items: ['سود زیاد', 'سود کم', 'بدون سود و زیان', 'ضرر کم', 'ضرر زیاد'],
           },
         },
@@ -222,7 +222,7 @@ export default [
           md: 12,
           value: null,
           options: {
-            rules: [],
+            rules: '',
           },
         },
       },
@@ -298,7 +298,7 @@ export default [
           md: 4,
           value: null,
           options: {
-            rules: [],
+            rules: '',
           },
         },
         amount: {
@@ -308,7 +308,7 @@ export default [
           value: null,
           options: {
             type: 'number',
-            rules: [],
+            rules: '',
             options: {
               suffix: 'ریال',
               length: 11,
@@ -322,7 +322,7 @@ export default [
           md: 4,
           value: null,
           options: {
-            rules: [],
+            rules: '',
           },
         },
       },
@@ -339,7 +339,7 @@ export default [
           value: null,
           options: {
             type: 'number',
-            rules: [],
+            rules: '',
             options: {
               suffix: 'ریال',
               length: 11,
@@ -363,7 +363,7 @@ export default [
           value: null,
           options: {
             type: 'number',
-            rules: [],
+            rules: '',
             options: {
               suffix: 'ریال',
               length: 11,
@@ -377,7 +377,7 @@ export default [
           md: 4,
           value: null,
           options: {
-            rules: [],
+            rules: '',
           },
         },
         comment: {
@@ -386,7 +386,7 @@ export default [
           md: 12,
           value: null,
           options: {
-            rules: [],
+            rules: '',
           },
         },
       },
@@ -405,7 +405,7 @@ export default [
           value: null,
           options: {
             type: 'number',
-            rules: [],
+            rules: '',
             options: {
               suffix: 'ریال',
               length: 11,
@@ -419,7 +419,7 @@ export default [
           md: 4,
           value: null,
           options: {
-            rules: [],
+            rules: '',
           },
         },
         comment: {
@@ -428,7 +428,7 @@ export default [
           md: 12,
           value: null,
           options: {
-            rules: [],
+            rules: '',
           },
         },
       },
@@ -446,7 +446,7 @@ export default [
           md: 4,
           value: null,
           options: {
-            rules: [],
+            rules: '',
           },
         },
         relative: {
@@ -455,7 +455,7 @@ export default [
           md: 4,
           value: null,
           options: {
-            rules: [],
+            rules: '',
           },
         },
         birthDate: {
@@ -464,7 +464,7 @@ export default [
           md: 4,
           value: null,
           options: {
-            rules: [],
+            rules: '',
           },
         },
         job: {
@@ -473,7 +473,7 @@ export default [
           md: 4,
           value: null,
           options: {
-            rules: [],
+            rules: '',
           },
         },
         income: {
@@ -482,7 +482,7 @@ export default [
           md: 4,
           value: null,
           options: {
-            rules: [],
+            rules: '',
             type: 'number',
             min: 0,
           },
@@ -493,7 +493,7 @@ export default [
           md: 4,
           value: null,
           options: {
-            rules: [],
+            rules: '',
             type: 'number',
             min: 0,
           },
