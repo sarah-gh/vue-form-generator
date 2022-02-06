@@ -1,14 +1,17 @@
 <template>
-    <div>
-        <template v-if="item.options && item.options.covertToNumber">
-            <label>{{item.label}}</label><span v-if="item.options.rules">*</span>
-            <input v-model="model" placeholder="text">
-        </template>
-        <template v-else>
-            <label>{{item.label}}</label><span v-if="item.options.rules">*</span>
-            <input v-model="model" placeholder="text">
-        </template>
-    </div>
+    <ValidationProvider :rules="item.options.rules" v-slot="{ errors }" tag="div" class="form-group">
+        <div>
+            <template v-if="item.options && item.options.covertToNumber">
+                <label>{{item.label}}</label><span v-if="item.options.rules">*</span>
+                <input v-model="model" placeholder="text">
+            </template>
+            <template v-else>
+                <label>{{item.label}}</label><span v-if="item.options.rules">*</span>
+                <input v-model="model" placeholder="text">
+            </template>
+        </div>
+        <p v-if="errors[0]" class="error">{{ errors[0] }}</p>
+    </ValidationProvider>
 </template>
 <script>
 

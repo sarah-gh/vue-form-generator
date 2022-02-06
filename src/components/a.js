@@ -322,7 +322,7 @@ export default [
           md: 4,
           value: null,
           options: {
-            rules: '',
+            rules: 'required|min:3',
           },
         },
       },
