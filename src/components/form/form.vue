@@ -4,17 +4,13 @@
         </div> 
         <template v-if="type === 'simple'">
             <FormFields :items="fields" />
-            <button @click.prevent="_addCard()" color="primary" class="px-10 mx-md-6 mt-5">تایید</button>
+            <!-- <button @click.prevent="_addCard()" color="primary" class="px-10 mx-md-6 mt-5">تایید</button> -->
         </template>
         <template v-else-if="type === 'multiple'">
             <template>
-                <!-- v-model="showDialog" -->
                 <div max-width="1000"> 
                 <div v-if="showDialog" class="white pa-5">
                     <div class="d-flex justify-end">
-                    <!-- <button @click.prevent="showDialog = false">
-                        <i>mdi-close</i>
-                    </button> -->
                     <font-awesome-icon @click.prevent="showDialog = false" :icon="['fas', 'times']" />
                     </div>
                     <FormFields :items="fields" />
@@ -27,9 +23,6 @@
                 <div v-for="(row, index) in rows" :key="row.id">
                     <div class="mx-3 mb-3 pa-3 pb-5">
                     <div class="d-flex justify-end pr-4">
-                        <!-- <button @click.prevent="_removeCard(index)" icon color="error" class="mr-4">
-                        <i>mdi-close</i>
-                        </button> -->
                         <font-awesome-icon @click.prevent="_removeCard(index)" :icon="['fas', 'times']" />
                     </div>
                     <div class="row no-gutters">
@@ -44,12 +37,10 @@
                     </div>
                 </div>
 
-                <!-- <button @click.prevent="showDialog = true" dark class="mt-4 mr-4 success"><i>mdi-plus</i> </button> -->
                 <font-awesome-icon @click.prevent="showDialog = true" :icon="['fas', 'plus']" />
                 </div>
                 <div v-else class="d-flex flex-column align-center my-7">
                 <h3 class="mb-3">لیست خالی است</h3>
-                <!-- <button @click.prevent="showDialog = true" color="success"><i>mdi-plus</i> افزودن ایتم جدید</button> -->
                 <font-awesome-icon @click.prevent="showDialog = true" :icon="['fas', 'plus']" />
                 </div>
             </template>
@@ -105,7 +96,7 @@
           this.fields = value[key];
         },
       },
-      staticRowsData: {
+      staticRowsData: { // table 
         immediate: true,
         deep: true,
         handler(value) {
@@ -147,7 +138,6 @@
       },
       _getDataFromRows() {
         if (this.type === 'table') {
-          // console.log(this.rows);
           return this.rows.map((i) => {
             const model = {};
             for (const j in i.data) {
@@ -159,10 +149,8 @@
           });
         } else {
           return this.rows.map((i) => {
-            // console.log(i);
             let data = {};
             for (const j in i.data) {
-              // console.log(this.schema[this.key][j]);
               if (this.schema[this.key][j] && this.schema[this.key][j].options && this.schema[this.key][j].options.covertToNumber) data[j] = +i.data[j];
               else data[j] = i.data[j] + '';
             }

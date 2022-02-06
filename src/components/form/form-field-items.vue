@@ -1,44 +1,5 @@
 <template>
     <div>
-        <!-- <template v-if="item.mode === 'select'">
-            <label>{{item.label}}</label>
-            <v-select multiple v-model="item.value" :options="item.options.items" />
-        </template>
-        <template v-else-if="item.mode === 'checkbox'">
-            <label>{{item.label}}</label>
-            <input type="checkbox" id="jack" value="Jack" v-model="item.value">
-            <label for="mike">{{item.options.items}}</label>
-        </template>
-        <template v-else-if="item.mode === 'checkbox-group'">
-            <p v-if="item.label">{{ item.label }}</p>
-        </template>
-        <template v-else-if="item.mode === 'radio-group'">
-            <p v-if="item.label">{{ item.label }}</p>
-        </template>
-        <template v-else-if="item.mode === 'textarea'">
-            <textarea v-model="item.value" placeholder="add multiple lines"></textarea>
-        </template>
-        <template v-else-if="item.mode === 'date-picker'"> 
-            <label>{{item.label}}</label>
-            <date-picker v-model="item.value" placeholder="date-picker"></date-picker>
-        </template>
-        <template v-else-if="item.mode === 'label'">
-            <span>{{ item.value }}</span>
-        </template>
-        <template v-else-if="item.mode === 'money'"> 
-            <label>{{item.label}}</label>
-            <input v-model="item.value" placeholder="money">
-        </template>
-        <template v-else-if="!item.mode || item.mode === 'text'"> 
-            <template v-if="item.options && item.options.covertToNumber">
-                <label>{{item.label}}</label>
-                <input v-model="item.value" placeholder="text">
-            </template>
-            <template v-else>
-                <label>{{item.label}}</label>
-                <input v-model="item.value" placeholder="text">
-            </template>
-        </template> -->
         <component v-bind:is="currentTabComponent" :item="item"></component>
     </div>
 </template>

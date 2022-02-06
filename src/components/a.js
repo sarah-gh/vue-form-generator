@@ -228,64 +228,64 @@ export default [
       },
     },
   },
-  {
-    title: 'دارایی ها و ترکیب آن ها',
-    type: 'table',
-    staticRowsData: [
-      {
-        title: 'ساختمان و ملک',
-      },
-      {
-        title: 'خودرو',
-      },
-      {
-        title: 'طلا و ارز',
-      },
-      {
-        title: 'سهام',
-      },
-      {
-        title: 'اوراق با درآمد ثابت',
-      },
-      {
-        title: 'وجه نقد / مطالبات از سایر اشخاص / حساب پسانداز و سپرده بانکی',
-      },
-      {
-        title: 'سایر دارایی ها',
-      },
-    ],
-    schema: {
-      assetComposition: {
-        title: {
-          mode: 'label',
-          label: 'نوع',
-          value: null,
-        },
-        assetValue: {
-          mode: 'money',
-          label: 'ارزش روز دارایی ها',
-          value: null,
-          default: 0,
-          options: {
-            hideDetails: true,
-          },
-        },
-        percent: {
-          mode: 'text',
-          label: 'درصد از کل دارایی ها',
-          value: null,
-          default: 0,
-          options: {
-            // rules: [percent],
-            type: 'number',
-            hideDetails: true,
-            min: 0,
-            max: 100,
-          },
-        },
-      },
-    },
-  },
+  // {
+  //   title: 'دارایی ها و ترکیب آن ها',
+  //   type: 'table',
+  //   staticRowsData: [
+  //     {
+  //       title: 'ساختمان و ملک',
+  //     },
+  //     {
+  //       title: 'خودرو',
+  //     },
+  //     {
+  //       title: 'طلا و ارز',
+  //     },
+  //     {
+  //       title: 'سهام',
+  //     },
+  //     {
+  //       title: 'اوراق با درآمد ثابت',
+  //     },
+  //     {
+  //       title: 'وجه نقد / مطالبات از سایر اشخاص / حساب پسانداز و سپرده بانکی',
+  //     },
+  //     {
+  //       title: 'سایر دارایی ها',
+  //     },
+  //   ],
+  //   schema: {
+  //     assetComposition: {
+  //       title: {
+  //         mode: 'label',
+  //         label: 'نوع',
+  //         value: null,
+  //       },
+  //       assetValue: {
+  //         mode: 'money',
+  //         label: 'ارزش روز دارایی ها',
+  //         value: null,
+  //         default: 0,
+  //         options: {
+  //           hideDetails: true,
+  //         },
+  //       },
+  //       percent: {
+  //         mode: 'text',
+  //         label: 'درصد از کل دارایی ها',
+  //         value: null,
+  //         default: 0,
+  //         options: {
+  //           // rules: [percent],
+  //           type: 'number',
+  //           hideDetails: true,
+  //           min: 0,
+  //           max: 100,
+  //         },
+  //       },
+  //     },
+  //   },
+  // },
   {
     title: 'بدهی ها و سررسید آنها',
     type: 'multiple',
