@@ -57,16 +57,16 @@ export default {
             ...data,
           };
         });
+        console.log(formData);
         for (const i in formData) {
           if (Array.isArray(formData[i]) && formData[i].length === 0) {
             formData[i] = null;
           } else if (typeof formData[i] === 'object' && !Array.isArray(formData[i]) && formData[i] !== null) {
-            let f = false;
+            let f = true;
             const values = Object.values(formData[i]);
-            jFor: for (const j of values) {
-              if (j === null) {
-                f = true;
-                break jFor;
+            for (const j of values) {
+              if (j !== null) {
+                f = false;
               }
             }
             if (f) {
