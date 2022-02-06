@@ -2,7 +2,7 @@
     <div>
         <label>{{item.label}}</label> 
         <!-- <input v-model="item.value" placeholder="money"> -->
-        <input v-model="fValue" placeholder="money">
+        <input v-model="fValue" placeholder="money" @keypress="isNumber($event)">
     </div> 
 </template>
 <script>
@@ -24,11 +24,13 @@ export default {
             // getter
             get: function() {
                 if (this.value !== "") {
+                    console.log('get');
                     return this.formatUSD(this.value);
                 }
             },
             // setter
             set: function(newValue) {
+                console.log('set');
                 this.value = this.parseUSD(newValue);
                 this.item.value = this.value
             }
@@ -41,6 +43,15 @@ export default {
                 .toString()
                 .replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,")
             );
+        },
+        isNumber(evt) {
+            evt = (evt) ? evt : window.event;
+            var charCode = (evt.which) ? evt.which : evt.keyCode;
+            if ((charCode > 31 && (charCode < 48 || charCode > 57)) && charCode !== 46) {
+                evt.preventDefault();;
+            } else {
+                return true;
+            }
         },
         parseUSD(text) {
             return Number(text.replace(/,/g, ""));
