@@ -25,7 +25,7 @@ export default [
           md: 4,
           value: null,
           options: {
-            rules: [],
+            rules: ['required'],
           },
         },
         jobAddress: {
@@ -502,3 +502,22 @@ export default [
     },
   },
 ];
+
+// form: [
+//   {
+//     name: 'username',
+//     rules: 'required|min:3',
+//     label: 'نام کاربری',
+//     type: 'input',
+//     inputType: 'text',
+//     value: ''
+//   },
+//   {
+//     name: 'password',
+//     rules: 'required|min:8',
+//     label: 'رمز ورود',
+//     type: 'input',
+//     inputType: 'password',
+//     value: ''
+//   }
+// ],

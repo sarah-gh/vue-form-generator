@@ -40,7 +40,6 @@ export default {
       return {
         loading: false,
         error: undefined,
-        // rules: { required },
         step: 1,
         captcha: {},
         steps: [],
@@ -49,7 +48,6 @@ export default {
     methods: {
       async submit() {
         let formData = {};
-        console.log('this.$refs.form ',this.$refs.form);
         this.$refs.form.forEach((i) => {
           let data = i.getData();
           formData = {
@@ -57,7 +55,6 @@ export default {
             ...data,
           };
         });
-        console.log(formData);
         for (const i in formData) {
           if (Array.isArray(formData[i]) && formData[i].length === 0) {
             formData[i] = null;

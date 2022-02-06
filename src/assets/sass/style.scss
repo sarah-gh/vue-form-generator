@@ -8,32 +8,3 @@
 
 // Global Codes
 @import "main";
-
-// Pages
-@import "./pages/form";
-@import "./pages/login-signup";
-@import "./pages/Home";
-@import "./pages/reportList";
-@import "./pages/_reportShow.scss";
-
-
-// Components
-@import "./components/headerTop.scss";
-@import "./components/chart.scss";
-@import "./components/tableBox.scss";
-@import "./components/_newReport.scss";
-@import "./components/reportSettings/_loan.scss";
-@import "./components/reportSettings/_currency.scss";
-@import "./components/reportSettings/_ledger.scss";
-
-@import "./components/reportSettings/_branch.scss";
-@import "./components/reportSettings/_historical.scss";
-@import "./components/reportSettings/_interval.scss";
-
-// Plugins
-@import "./plugins/persian-datepicker";
-
-//reports
-@import "./pages/reports/archive";
-@import "./pages/reports/show";
-@import "./pages/reports/setting.scss";

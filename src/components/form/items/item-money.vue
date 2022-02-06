@@ -24,13 +24,11 @@ export default {
             // getter
             get: function() {
                 if (this.value !== "") {
-                    console.log('get');
                     return this.formatUSD(this.value);
                 }
             },
             // setter
             set: function(newValue) {
-                console.log('set');
                 this.value = this.parseUSD(newValue);
                 this.item.value = this.value
             }

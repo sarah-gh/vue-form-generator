@@ -1,51 +1,53 @@
 <template>
-    <form ref="form">
-        <div v-if="message">
-        </div> 
-        <template v-if="type === 'simple'">
-            <FormFields :items="fields" />
-            <!-- <button @click.prevent="_addCard()" color="primary" class="px-10 mx-md-6 mt-5">تایید</button> -->
-        </template>
-        <template v-else-if="type === 'multiple'">
-            <template>
-                <div max-width="1000"> 
-                <div v-if="showDialog" class="white pa-5">
-                    <div class="d-flex justify-end">
-                    <font-awesome-icon @click.prevent="showDialog = false" :icon="['fas', 'times']" />
-                    </div>
-                    <FormFields :items="fields" />
-                    <button @click.prevent="_addCard()" color="primary" class="px-10 mx-md-6 mt-5">تایید</button>
-                </div>
-                </div>
-            </template>
-            <template>
-                <div v-if="rows.length" class="mt-4 card">
-                <div v-for="(row, index) in rows" :key="row.id">
-                    <div class="mx-3 mb-3 pa-3 pb-5">
-                    <div class="d-flex justify-end pr-4">
-                        <font-awesome-icon @click.prevent="_removeCard(index)" :icon="['fas', 'times']" />
-                    </div>
-                    <div class="row no-gutters">
-                        <div class="col-sm-4 col-12"
-                        v-for="(i, key) in fields"
-                        :key="key"
-                        >
-                        <b>{{ i.label }}: </b>
-                        <span>{{ row.data[key] || '---' }}</span>
-                        </div>
-                    </div>
-                    </div>
-                </div>
+  <ValidationObserver tag="div" ref="form" style="width: 100%;">
+      <form>
+          <div v-if="message">
+          </div> 
+          <template v-if="type === 'simple'">
+              <FormFields :items="fields" />
+              <!-- <button @click.prevent="_addCard()" color="primary" class="px-10 mx-md-6 mt-5">تایید</button> -->
+          </template>
+          <template v-else-if="type === 'multiple'">
+              <template>
+                  <div max-width="1000"> 
+                  <div v-if="showDialog" class="white pa-5">
+                      <div class="d-flex justify-end">
+                      <font-awesome-icon @click.prevent="showDialog = false" :icon="['fas', 'times']" />
+                      </div>
+                      <FormFields :items="fields" />
+                      <button @click.prevent="_addCard()" color="primary" class="px-10 mx-md-6 mt-5">تایید</button>
+                  </div>
+                  </div>
+              </template>
+              <template>
+                  <div v-if="rows.length" class="mt-4 card">
+                  <div v-for="(row, index) in rows" :key="row.id">
+                      <div class="mx-3 mb-3 pa-3 pb-5">
+                      <div class="d-flex justify-end pr-4">
+                          <font-awesome-icon @click.prevent="_removeCard(index)" :icon="['fas', 'times']" />
+                      </div>
+                      <div class="row no-gutters">
+                          <div class="col-sm-4 col-12"
+                          v-for="(i, key) in fields"
+                          :key="key"
+                          >
+                          <b>{{ i.label }}: </b>
+                          <span>{{ row.data[key] || '---' }}</span>
+                          </div>
+                      </div>
+                      </div>
+                  </div>
 
-                <font-awesome-icon @click.prevent="showDialog = true" :icon="['fas', 'plus']" />
-                </div>
-                <div v-else class="d-flex flex-column align-center my-7">
-                <h3 class="mb-3">لیست خالی است</h3>
-                <font-awesome-icon @click.prevent="showDialog = true" :icon="['fas', 'plus']" />
-                </div>
-            </template>
-        </template>
-    </form>
+                  <font-awesome-icon @click.prevent="showDialog = true" :icon="['fas', 'plus']" />
+                  </div>
+                  <div v-else class="d-flex flex-column align-center my-7">
+                  <h3 class="mb-3">لیست خالی است</h3>
+                  <font-awesome-icon @click.prevent="showDialog = true" :icon="['fas', 'plus']" />
+                  </div>
+              </template>
+          </template>
+      </form>
+  </ValidationObserver>
 </template>
 
 <script>
@@ -126,6 +128,9 @@
       },
     },
     methods: {
+      isRequired(value) {
+        return value ? true : 'This field is required';
+      },
       _addCard() {
         const lastId = this.rows.length ? this.rows[this.rows.length - 1].id : 1;
         this.rows.push({ id: lastId + 1, data: this._getDataFromSchemaObject() });

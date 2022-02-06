@@ -16,6 +16,7 @@
     "axios": "^0.25.0",
     "moment": "^2.29.1",
     "tabulator-tables": "^5.1.0",
+    "vee-validate": "^3.4.14",
     "vue": "^2.6.14",
     "vue-dynamic-form-component": "^2.8.1",
     "vue-jstree": "^2.1.6",
