@@ -5,7 +5,7 @@
       :key="key"
     >
       <div :class="i.cssClasses">
-        <FormFieldItems :item="i" />
+        <FormFieldItems :item="i" @dependency="dependency" />
       </div>
     </div>
   </div>
@@ -20,5 +20,10 @@
         required: true,
       },
     },
+    methods: {
+        dependency(item) {
+          this.$emit('dependency', item)
+        }
+    }
   };
 </script>

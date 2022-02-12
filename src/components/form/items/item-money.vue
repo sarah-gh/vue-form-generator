@@ -1,15 +1,14 @@
 <template>
     <ValidationProvider :rules="item.options.rules" v-slot="{ errors }" tag="div" class="form-group">
         <div>
-            <label>{{item.label}}</label> <span v-if="item.options.rules">*</span>
-            <!-- <input v-model="item.value" placeholder="money"> -->
+            <label>{{item.label}}<span v-if="item.options.rules">*</span></label> 
             <input v-model="fValue" placeholder="money" @keypress="isNumber($event)">
         </div> 
         <p v-if="errors[0]" class="error">{{ errors[0] }}</p>
     </ValidationProvider>
 </template>
-<script>
 
+<script>
 export default {
     props: {
         item: {

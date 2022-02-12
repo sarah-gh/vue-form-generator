@@ -1,6 +1,7 @@
 <template>
     <div>
-        <component :is="currentTabComponent" :item="item"></component>
+        <component :is="currentTabComponent" :item="item" @dependency="dependency"></component>
+        <p v-if="item.options && item.options.att">(وابسته)</p>
     </div>   
 </template>
 
@@ -60,6 +61,11 @@ export default {
             type: Object,
         },
     },
+    methods: {
+        dependency() {
+            this.$emit('dependency' , this.item)
+        }
+    }
 };
 </script>
 

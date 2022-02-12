@@ -137,5 +137,128 @@ html {
 }
 
 .error{
-  color: rgb(149, 2, 2);
+  color: #950202;
+}
+
+.vs__search{
+  min-width: 210px !important;
+}
+
+.v-select{
+  direction: rtl !important;
+}
+
+.close-form{
+  background-color: transparent;
+  width: 23px;
+  cursor: pointer;
+  height: 23px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  border: 3px solid black;
+  filter: invert(8%) sepia(63%) saturate(6831%) hue-rotate(358deg) brightness(104%) contrast(109%);
+}
+
+.remove-card{
+  background-color: transparent;
+  width: 25px;
+  cursor: pointer;
+  height: 25px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5px;
+  border: 3px solid black;
+  filter: invert(8%) sepia(63%) saturate(6831%) hue-rotate(358deg) brightness(104%) contrast(109%);
+}
+
+.form-group{
+  margin: 10px 0;
+  display: flex;
+  direction: rtl;
+}
+.form-group > label{
+  min-width: 300px !important;
+}
+
+.form-group > div{
+  display: flex;
+  direction: rtl;
+}
+
+.form-group > div > label{
+  min-width: 300px !important;
+}
+.formFields{
+  border: 1px solid #ccc;
+  padding: 15px 10px;
+}
+
+.form-group > div > input{
+  width: 230px;
+  height: 30px;
+  direction: rtl;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  background-color: rgb(251, 251, 251) ;
+}
+
+.form-group > div > input[type="radio"]{
+  width: 15px;
+  height: 15px;
+  margin: 0 10px;
+}
+
+textarea{
+  width: 550px;
+  height: 150px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  background-color: rgb(251, 251, 251) ;
+}
+
+.card-items{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+}
+.card-item{
+  min-width: 200px;
+  margin: 10px 0;
+}
+
+.card > div {
+  border: 1px solid #ccc;
+  padding: 15px 10px;
+  margin: 5px 0;
+}
+
+.plus-form{
+  background-color: transparent;
+  width: 45px;
+  cursor: pointer;
+  height: 25px;
+  display: flex;
+  margin: 0 auto;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5px;
+  border: 3px solid #000000;
+  filter: invert(58%) sepia(55%) saturate(6046%) hue-rotate(81deg) brightness(98%) contrast(92%);
+}
+
+.edit-form{
+  background-color: transparent;
+  width: 45px;
+  cursor: pointer;
+  height: 25px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5px;
+  border: 3px solid #000000;
+  filter: invert(58%) sepia(55%) saturate(6046%) hue-rotate(81deg) brightness(98%) contrast(92%);
 }

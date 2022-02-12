@@ -13,6 +13,10 @@ export default [
           value: null,
           options: {
             rules: '',
+            att: {
+              name: 'aaa',
+              value: 'jobTitle',
+            },
             items: [
               'بیکار', 'بازنشسته', 'کارگر', 'خانه دار', 'کارمند', 'محصل', 'دانشجوی دانشگاه', 'نظامی', 'پزشک', 'فعال اقتصادی', 'مهندس', 'وکیل', 'پرستار',
               'خدماتی', 'معلم', 'تکنسین فنی', 'راننده', 'مکانیک', 'فروشنده', 'تاجر', 'بهیار', 'استاد دانشگاه', 'کاسب', 'فعال حوزه صنعت', 'تولیدی', 'بازرگانی', 'کشاورزی', 'علمی', 'شغل آزاد', 'سایر'
@@ -25,7 +29,11 @@ export default [
           md: 4,
           value: null,
           options: {
-            rules: 'required|min:3',
+            rules: '',
+            att: {
+              name: 'aaa',
+              value: 'jobActivity',
+            },
           },
         },
         jobAddress: {
@@ -228,64 +236,64 @@ export default [
       },
     },
   },
-  // {
-  //   title: 'دارایی ها و ترکیب آن ها',
-  //   type: 'table',
-  //   staticRowsData: [
-  //     {
-  //       title: 'ساختمان و ملک',
-  //     },
-  //     {
-  //       title: 'خودرو',
-  //     },
-  //     {
-  //       title: 'طلا و ارز',
-  //     },
-  //     {
-  //       title: 'سهام',
-  //     },
-  //     {
-  //       title: 'اوراق با درآمد ثابت',
-  //     },
-  //     {
-  //       title: 'وجه نقد / مطالبات از سایر اشخاص / حساب پسانداز و سپرده بانکی',
-  //     },
-  //     {
-  //       title: 'سایر دارایی ها',
-  //     },
-  //   ],
-  //   schema: {
-  //     assetComposition: {
-  //       title: {
-  //         mode: 'label',
-  //         label: 'نوع',
-  //         value: null,
-  //       },
-  //       assetValue: {
-  //         mode: 'money',
-  //         label: 'ارزش روز دارایی ها',
-  //         value: null,
-  //         default: 0,
-  //         options: {
-  //           hideDetails: true,
-  //         },
-  //       },
-  //       percent: {
-  //         mode: 'text',
-  //         label: 'درصد از کل دارایی ها',
-  //         value: null,
-  //         default: 0,
-  //         options: {
-  //           // rules: [percent],
-  //           type: 'number',
-  //           hideDetails: true,
-  //           min: 0,
-  //           max: 100,
-  //         },
-  //       },
-  //     },
-  //   },
-  // },
+  {
+    title: 'دارایی ها و ترکیب آن ها',
+    type: 'table',
+    staticRowsData: [
+      {
+        title: 'ساختمان و ملک',
+      },
+      {
+        title: 'خودرو',
+      },
+      {
+        title: 'طلا و ارز',
+      },
+      {
+        title: 'سهام',
+      },
+      {
+        title: 'اوراق با درآمد ثابت',
+      },
+      {
+        title: 'وجه نقد / مطالبات از سایر اشخاص / حساب پسانداز و سپرده بانکی',
+      },
+      {
+        title: 'سایر دارایی ها',
+      },
+    ],
+    schema: {
+      assetComposition: {
+        title: {
+          mode: 'label',
+          label: 'نوع',
+          value: null,
+        },
+        assetValue: {
+          mode: 'money',
+          label: 'ارزش روز دارایی ها',
+          value: null,
+          default: 0,
+          options: {
+            hideDetails: true,
+          },
+        },
+        percent: {
+          mode: 'text',
+          label: 'درصد از کل دارایی ها',
+          value: null,
+          default: 0,
+          options: {
+            // rules: [percent],
+            type: 'number',
+            hideDetails: true,
+            min: 0,
+            max: 100,
+          },
+        },
+      },
+    },
+  },
   {
     title: 'بدهی ها و سررسید آنها',
     type: 'multiple',

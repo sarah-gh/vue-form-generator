@@ -2,12 +2,12 @@
     <ValidationProvider :rules="item.options.rules" v-slot="{ errors }" tag="div" class="form-group">
         <div>
             <template v-if="item.options && item.options.covertToNumber">
-                <label>{{item.label}}</label><span v-if="item.options.rules">*</span>
-                <input v-model="model" placeholder="text">
+                <label>{{item.label}}<span v-if="item.options.rules">*</span></label>
+                <input v-model="model" placeholder="text" @input="dependency" @keypress="isNumber($event)">
             </template>
             <template v-else>
-                <label>{{item.label}}</label><span v-if="item.options.rules">*</span>
-                <input v-model="model" placeholder="text">
+                <label>{{item.label}}<span v-if="item.options.rules">*</span></label>
+                <input v-model="model" placeholder="text" @input="dependency">
             </template>
         </div>
         <p v-if="errors[0]" class="error">{{ errors[0] }}</p>
@@ -44,6 +44,18 @@ export default {
         handleBlur() {
             this.blur = true
         },
+        isNumber(evt) {
+            evt = (evt) ? evt : window.event;
+            var charCode = (evt.which) ? evt.which : evt.keyCode;
+            if ((charCode > 31 && (charCode < 48 || charCode > 57)) && charCode !== 46) {
+                evt.preventDefault();;
+            } else {
+                return true;
+            }
+        },
+        dependency() {
+            this.$emit('dependency')
+        }
         // setName(value) {
         //     this.name = value
         //     this.$v.name.$touch()

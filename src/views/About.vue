@@ -82,7 +82,7 @@ export default {
 
 <style lang="scss">
 .complete-information__content{
-  width: 600px;
+  width: 1100px;
   margin: 0 auto;
 }
 </style>
